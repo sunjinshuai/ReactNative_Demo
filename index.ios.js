@@ -11,7 +11,7 @@ import {
    Navigator
 } from 'react-native';
 
-import FirstPageComponent from './FirstPageComponent';
+import FirstPageComponent from './View/Day1/FirstPageComponent';
 
 export default class ReactNative_Demo extends React.Component {
    render() {
