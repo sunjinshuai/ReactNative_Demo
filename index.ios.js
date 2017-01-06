@@ -58,10 +58,31 @@ class ReactNative_QQ extends React.Component {
     }
 }
 
-export default class ReactNative_Demo extends React.Component {
+class ReactNative_Image extends React.Component {
     render() {
         return (
             <Image source={{uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'}} style={{width: 193, height: 110}} />
+        );
+    }
+}
+
+// 自定义组件
+class Greeting extends Component {
+    render() {
+        return (
+            <Text>Hello {this.props.name}!</Text>
+        );
+    }
+}
+
+export default class ReactNative_Demo extends React.Component {
+    render() {
+        return (
+            <View style={{alignItems: 'center'}}>
+                <Greeting name='Rexxar' />
+                <Greeting name='Jaina' />
+                <Greeting name='Valeera' />
+            </View>
         );
     }
 }
