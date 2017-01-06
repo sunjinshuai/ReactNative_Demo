@@ -133,7 +133,7 @@ class ReactNative_Styles extends React.Component {
     }
 }
 
-export default class ReactNative_Demo extends React.Component {
+class ReactNative_HeightAndWidth extends React.Component {
     render() {
         return (
             // 指定宽高
@@ -143,10 +143,33 @@ export default class ReactNative_Demo extends React.Component {
             //     <View style={{width: 150, height: 150, backgroundColor: 'steelblue'}} />
             // </View>
             // 弹性（Flex）宽高
-            <View style={{flex: 1}}>
-                <View style={{flex: 1, backgroundColor: 'powderblue'}} />
-                <View style={{flex: 2, backgroundColor: 'skyblue'}} />
-                <View style={{flex: 3, backgroundColor: 'steelblue'}} />
+            <View style={{flex: 1, flexDirection: 'row'}}>
+                <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
+                <View style={{width: 50, height: 50, backgroundColor: 'skyblue'}} />
+                <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
+            </View>
+        );
+    }
+}
+
+export default class ReactNative_Demo extends React.Component {
+    // 构造
+    constructor(props) {
+        super(props);
+        // 初始状态
+        this.state = {text: ''};
+    }
+    render() {
+        return (
+            <View style={{padding: 10}}>
+                <TextInput
+                    style={{height: 40}}
+                    placeholder="Type here to translate!"
+                    onChangeText={(text) => this.setState({text})}
+                />
+                <Text style={{padding: 10, fontSize: 42}}>
+                    {this.state.text.split(' ').map((word) => word && '🍕').join(' ')}
+                </Text>
             </View>
         );
     }
