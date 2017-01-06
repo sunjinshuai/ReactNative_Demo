@@ -20,7 +20,6 @@ import FirstPageComponent from './View/Day1/FirstPageComponent';
 
 class ReactNative_HelloWorld extends React.Component {
     render() {
-        demo1
         return (
             <View style={styles.container}>
                 <Text>Hello World!</Text>
@@ -31,13 +30,6 @@ class ReactNative_HelloWorld extends React.Component {
 
 class ReactNative_QQ extends React.Component {
     render() {
-        // demo1
-        // return (
-        //     <View style={styles.container}>
-        //         <Text>Hello World!</Text>
-        //     </View>
-        // );
-
         return (
             <View style={{backgroundColor:'#f4f4f4',flex:1}}>
                 <Image style={styles.style_image}
