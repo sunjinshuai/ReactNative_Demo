@@ -12,12 +12,24 @@ import {
     Image,
     Text,
     View,
-    TextInput
+    TextInput,
+    NavigatorIOS,
 } from 'react-native';
 
 import FirstPageComponent from './View/Day1/FirstPageComponent';
 
-export default class ReactNative_Demo extends React.Component {
+class ReactNative_HelloWorld extends React.Component {
+    render() {
+        demo1
+        return (
+            <View style={styles.container}>
+                <Text>Hello World!</Text>
+            </View>
+        );
+    }
+}
+
+class ReactNative_QQ extends React.Component {
     render() {
         // demo1
         // return (
@@ -50,6 +62,14 @@ export default class ReactNative_Demo extends React.Component {
                     <Text style={styles.style_view_register}> 新用户 </Text>
                 </View>
             </View>
+        );
+    }
+}
+
+export default class ReactNative_Demo extends React.Component {
+    render() {
+        return (
+            <Image source={{uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'}} style={{width: 193, height: 110}} />
         );
     }
 }
