@@ -120,7 +120,7 @@ class ReactNative_State extends React.Component {
     }
 }
 
-export default class ReactNative_Demo extends React.Component {
+class ReactNative_Styles extends React.Component {
     render() {
         return (
             <View>
@@ -128,6 +128,19 @@ export default class ReactNative_Demo extends React.Component {
                 <Text style={styles.bigblue}>just bigblue</Text>
                 <Text style={[styles.bigblue, styles.red]}>bigblue, then red</Text>
                 <Text style={[styles.red, styles.bigblue]}>red, then bigblue</Text>
+            </View>
+        );
+    }
+}
+
+export default class ReactNative_Demo extends React.Component {
+    render() {
+        return (
+            // 指定宽高
+            <View>
+                <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
+                <View style={{width: 100, height: 100, backgroundColor: 'skyblue'}} />
+                <View style={{width: 150, height: 150, backgroundColor: 'steelblue'}} />
             </View>
         );
     }
