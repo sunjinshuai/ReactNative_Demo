@@ -107,7 +107,7 @@ class Blink extends Component {
     }
 }
 
-export default class ReactNative_Demo extends React.Component {
+class ReactNative_State extends React.Component {
     render() {
         return (
             <View>
@@ -115,6 +115,19 @@ export default class ReactNative_Demo extends React.Component {
                 <Blink text='Yes blinking is so great' />
                 <Blink text='Why did they ever take this out of HTML' />
                 <Blink text='Look at me look at me look at me' />
+            </View>
+        );
+    }
+}
+
+export default class ReactNative_Demo extends React.Component {
+    render() {
+        return (
+            <View>
+                <Text style={styles.red}>just red</Text>
+                <Text style={styles.bigblue}>just bigblue</Text>
+                <Text style={[styles.bigblue, styles.red]}>bigblue, then red</Text>
+                <Text style={[styles.red, styles.bigblue]}>red, then bigblue</Text>
             </View>
         );
     }
@@ -166,7 +179,15 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         textAlign: 'right',
-    }
+    },
+    bigblue: {
+        color: 'blue',
+        fontWeight: 'bold',
+        fontSize: 30,
+    },
+    red: {
+        color: 'red',
+    },
 });
 
 AppRegistry.registerComponent('ReactNative_Demo', () => ReactNative_Demo);
