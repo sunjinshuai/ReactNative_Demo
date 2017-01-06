@@ -137,10 +137,16 @@ export default class ReactNative_Demo extends React.Component {
     render() {
         return (
             // 指定宽高
-            <View>
-                <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
-                <View style={{width: 100, height: 100, backgroundColor: 'skyblue'}} />
-                <View style={{width: 150, height: 150, backgroundColor: 'steelblue'}} />
+            // <View>
+            //     <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
+            //     <View style={{width: 100, height: 100, backgroundColor: 'skyblue'}} />
+            //     <View style={{width: 150, height: 150, backgroundColor: 'steelblue'}} />
+            // </View>
+            // 弹性（Flex）宽高
+            <View style={{flex: 1}}>
+                <View style={{flex: 1, backgroundColor: 'powderblue'}} />
+                <View style={{flex: 2, backgroundColor: 'skyblue'}} />
+                <View style={{flex: 3, backgroundColor: 'steelblue'}} />
             </View>
         );
     }
