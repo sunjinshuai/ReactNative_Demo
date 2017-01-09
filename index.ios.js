@@ -186,8 +186,8 @@ export default class ReactNative_Demo extends React.Component {
         this.state = {status: 1};
     }
 
-    customPressHandle() {
-        // 自定义的方法
+    customPressHandle = () => {
+        // 自定义的方法,使用属性来定义
         alert('你按下了按钮，当前状态是' + this.state.status);
     };
 
