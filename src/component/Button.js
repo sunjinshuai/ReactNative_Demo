@@ -30,10 +30,11 @@ export default class Button extends React.Component {
     };
 
     render() {
+        const { text } = this.props;
         return (
             <View style={styles.container}>
                 <TouchableOpacity onPress={this.customPressHandle} style={styles.button}>
-                    <Text style={styles.buttonText}>确定</Text>
+                    <Text style={styles.buttonText}>{this.props.text}</Text>
                 </TouchableOpacity>
             </View>
         );
