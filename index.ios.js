@@ -18,6 +18,7 @@ import {
 } from 'react-native';
 
 import FirstPageComponent from './View/Day1/FirstPageComponent';
+import Button from './src/component/Button';
 
 class ReactNative_HelloWorld extends React.Component {
     render() {
@@ -194,26 +195,13 @@ export default class ReactNative_Demo extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <TouchableOpacity onPress={this.customPressHandle} style={styles.button}>
-                    <Text style={styles.buttonText}>确定</Text>
-                </TouchableOpacity>
+                <Button/>
             </View>
         );
     }
 }
 
 const styles = StyleSheet.create({
-    button: {
-        height: 40,
-        width: 100,
-        borderRadius: 5,
-        backgroundColor: 'green',
-        justifyContent: 'center',
-    },
-    buttonText: {
-        textAlign: 'center',
-        color: 'white',
-    },
     container: {
         flex: 1,
         justifyContent: 'center',
