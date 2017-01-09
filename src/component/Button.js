@@ -24,16 +24,17 @@ export default class Button extends React.Component {
         this.state = {status: 1};
     }
 
-    customPressHandle = () => {
-        // 自定义的方法,使用属性来定义
-        alert('你按下了按钮，当前状态是' + this.state.status);
+    onPress = () => {
+        const { onPress } = this.props;
+        onPress();
     };
 
     render() {
         const { text } = this.props;
+
         return (
             <View style={styles.container}>
-                <TouchableOpacity onPress={this.customPressHandle} style={styles.button}>
+                <TouchableOpacity onPress={this.onPress} style={styles.button}>
                     <Text style={styles.buttonText}>{this.props.text}</Text>
                 </TouchableOpacity>
             </View>

@@ -195,7 +195,7 @@ export default class ReactNative_Demo extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <Button text="确定"/>
+                <Button text="确定" onPress={this.customPressHandle}/>
             </View>
         );
     }
