@@ -14,6 +14,7 @@ import {
     View,
     TextInput,
     NavigatorIOS,
+    TouchableOpacity
 } from 'react-native';
 
 import FirstPageComponent from './View/Day1/FirstPageComponent';
@@ -31,7 +32,7 @@ class ReactNative_HelloWorld extends React.Component {
 class ReactNative_QQ extends React.Component {
     render() {
         return (
-            <View style={{backgroundColor:'#f4f4f4',flex:1}}>
+            <View style={{backgroundColor: '#f4f4f4', flex: 1}}>
                 <Image style={styles.style_image}
                        source={require('./img/app_icon.png')}/>
                 <TextInput style={styles.style_user_input}
@@ -40,16 +41,16 @@ class ReactNative_QQ extends React.Component {
                            autoFocus={true}
                            underlineColorAndroid={'transparent'}
                            textAlign='center'/>
-                <View style={{height:1,backgroundColor:'#f4f4f4'}}/>
+                <View style={{height: 1, backgroundColor: '#f4f4f4'}}/>
                 <TextInput style={styles.style_pwd_input}
                            placeholder='密码' numberOfLines={1}
                            underlineColorAndroid={'transparent'}
                            secureTextEntry={true}
                            textAlign='center'/>
                 <View style={styles.style_view_commit}>
-                    <Text style={{color:'#fff'}}> 登录 </Text>
+                    <Text style={{color: '#fff'}}> 登录 </Text>
                 </View>
-                <View style={{flex:1,flexDirection:'row',alignItems: 'flex-end',bottom:10}}>
+                <View style={{flex: 1, flexDirection: 'row', alignItems: 'flex-end', bottom: 10}}>
                     <Text style={styles.style_view_unlogin}> 无法登录? </Text>
                     <Text style={styles.style_view_register}> 新用户 </Text>
                 </View>
@@ -61,7 +62,8 @@ class ReactNative_QQ extends React.Component {
 class ReactNative_Image extends React.Component {
     render() {
         return (
-            <Image source={{uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'}} style={{width: 193, height: 110}} />
+            <Image source={{uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'}}
+                   style={{width: 193, height: 110}}/>
         );
     }
 }
@@ -79,9 +81,9 @@ class ReactNative_Greeting extends React.Component {
     render() {
         return (
             <View style={{alignItems: 'center'}}>
-                <Greeting name='ReactNative' />
-                <Greeting name='Week' />
-                <Greeting name='iOS' />
+                <Greeting name='ReactNative'/>
+                <Greeting name='Week'/>
+                <Greeting name='iOS'/>
             </View>
         );
     }
@@ -90,11 +92,11 @@ class ReactNative_Greeting extends React.Component {
 class Blink extends Component {
     constructor(props) {
         super(props);
-        this.state = { showText: true };
+        this.state = {showText: true};
 
         // 每1000毫秒对showText状态做一次取反操作
         setInterval(() => {
-            this.setState({ showText: !this.state.showText });
+            this.setState({showText: !this.state.showText});
         }, 1000);
     }
 
@@ -111,10 +113,10 @@ class ReactNative_State extends React.Component {
     render() {
         return (
             <View>
-                <Blink text='I love to blink' />
-                <Blink text='Yes blinking is so great' />
-                <Blink text='Why did they ever take this out of HTML' />
-                <Blink text='Look at me look at me look at me' />
+                <Blink text='I love to blink'/>
+                <Blink text='Yes blinking is so great'/>
+                <Blink text='Why did they ever take this out of HTML'/>
+                <Blink text='Look at me look at me look at me'/>
             </View>
         );
     }
@@ -144,21 +146,22 @@ class ReactNative_HeightAndWidth extends React.Component {
             // </View>
             // 弹性（Flex）宽高
             <View style={{flex: 1, flexDirection: 'row'}}>
-                <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
-                <View style={{width: 50, height: 50, backgroundColor: 'skyblue'}} />
-                <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
+                <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}}/>
+                <View style={{width: 50, height: 50, backgroundColor: 'skyblue'}}/>
+                <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}}/>
             </View>
         );
     }
 }
 
-export default class ReactNative_Demo extends React.Component {
+class ReactNative_State1 extends React.Component {
     // 构造
     constructor(props) {
         super(props);
         // 初始状态
         this.state = {text: ''};
     }
+
     render() {
         return (
             <View style={{padding: 10}}>
@@ -175,7 +178,42 @@ export default class ReactNative_Demo extends React.Component {
     }
 }
 
+export default class ReactNative_Demo extends React.Component {
+    // 构造
+    constructor(props) {
+        super(props);
+        // 初始状态
+        this.state = {status: 1};
+    }
+
+    customPressHandle() {
+        // 自定义的方法
+        alert('你按下了按钮，当前状态是' + this.state.status);
+    };
+
+    render() {
+        return (
+            <View style={styles.container}>
+                <TouchableOpacity onPress={this.customPressHandle} style={styles.button}>
+                    <Text style={styles.buttonText}>确定</Text>
+                </TouchableOpacity>
+            </View>
+        );
+    }
+}
+
 const styles = StyleSheet.create({
+    button: {
+        height: 40,
+        width: 100,
+        borderRadius: 5,
+        backgroundColor: 'green',
+        justifyContent: 'center',
+    },
+    buttonText: {
+        textAlign: 'center',
+        color: 'white',
+    },
     container: {
         flex: 1,
         justifyContent: 'center',
