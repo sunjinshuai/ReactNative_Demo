@@ -14,7 +14,8 @@ import {
     View,
     TextInput,
     NavigatorIOS,
-    TouchableOpacity
+    TouchableOpacity,
+    ScrollView
 } from 'react-native';
 
 import FirstPageComponent from './View/Day1/FirstPageComponent';
@@ -179,6 +180,7 @@ class ReactNative_State1 extends React.Component {
     }
 }
 
+// 自定义Button
 class ReactNative_Button extends React.Component {
 
     customPressHandle = () => {
@@ -204,7 +206,8 @@ class ReactNative_Button extends React.Component {
     }
 }
 
-export default class ReactNative_Demo extends React.Component {
+// 从网络获取数据
+class ReactNative_Fetch extends React.Component {
 
     // 构造
     constructor(props) {
@@ -233,6 +236,32 @@ export default class ReactNative_Demo extends React.Component {
                 <Text style={styles.welcome}>{this.state.title}</Text>
                 <Button ref="button" text="提交" onPress={this.customPressHandle}/>
             </View>
+        );
+    }
+}
+
+// 导航栏
+class List extends Component {
+    render() {
+        return (
+            <ScrollView style={[styles.flex,styles.scrollViewTop]}>
+                <Text style={styles.list_item}>✨ 还有几天就放假了</Text>
+                <Text style={styles.list_item}>✨ 回家去干啥呢</Text>
+                <Text style={styles.list_item}>✨ 还是去撸代码去吧！</Text>
+            </ScrollView>
+        );
+    };
+}
+
+export default class ReactNative_Demo extends React.Component {
+
+    render() {
+        return (
+            <NavigatorIOS style={styles.flex} initialRoute={{
+                component: List,
+                title: '回家过年',
+                passProps:{},
+            }}/>
         );
     }
 }
@@ -298,6 +327,23 @@ const styles = StyleSheet.create({
     red: {
         color: 'red',
     },
+    flex: {
+        flex: 1,
+    },
+    scrollViewTop: {
+        marginTop: 20,
+    },
+    list_item: {
+        color: '#333',
+        fontSize: 16,
+        fontWeight: 'bold',
+        marginLeft: 15,
+        borderBottomWidth: 1,
+        borderBottomColor: '#ddd',
+    },
+    detail_text: {
+        textAlign: 'center',
+    }
 });
 
 AppRegistry.registerComponent('ReactNative_Demo', () => ReactNative_Demo);
