@@ -179,23 +179,59 @@ class ReactNative_State1 extends React.Component {
     }
 }
 
+class ReactNative_Button extends React.Component {
+
+    customPressHandle = () => {
+        this.refs.button.disable();
+        this.timer = setTimeout(
+            () => {
+                this.refs.button.enable();
+            }, 3000
+        );
+    };
+
+    componentWillUnmount() {
+        // 如果存在this.timer，则使用clearTimeout清空。
+        // 如果你使用多个timer，那么用多个变量，或者用个数组来保存引用，然后逐个clear
+        this.timer && clearTimeout(this.timer);
+    }
+    render() {
+        return (
+            <View style={styles.container}>
+                <Button ref="button" text="提交" onPress={this.customPressHandle}/>
+            </View>
+        );
+    }
+}
+
 export default class ReactNative_Demo extends React.Component {
+
     // 构造
     constructor(props) {
         super(props);
         // 初始状态
-        this.state = {status: 1};
+        this.state = {
+            text: ''
+        };
     }
-
     customPressHandle = () => {
-        // 自定义的方法,使用属性来定义
-        alert('你按下了按钮，当前状态是' + this.state.status);
+        fetch('http://bbs.reactnative.cn/api/category/3')
+            .then((response) => response.json())
+            .then((responseJson) => {
+                this.setState({
+                    title: responseJson.description,
+                })
+            })
+            .catch((error) => {
+                console.error(error);
+            });
     };
 
     render() {
         return (
             <View style={styles.container}>
-                <Button text="确定" onPress={this.customPressHandle}/>
+                <Text style={styles.welcome}>{this.state.title}</Text>
+                <Button ref="button" text="提交" onPress={this.customPressHandle}/>
             </View>
         );
     }
@@ -207,6 +243,12 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#DEB887',
+    },
+    welcome: {
+        fontSize: 20,
+        textAlign: 'center',
+        margin: 10,
+        color: 'red',
     },
     style_image: {
         borderRadius: 35,

@@ -21,20 +21,32 @@ export default class Button extends React.Component {
     constructor(props) {
         super(props);
         // 初始状态
-        this.state = {status: 1};
+        this.state = {
+            disabled: false,
+        };
     }
-
     onPress = () => {
         const { onPress } = this.props;
         onPress();
     };
-
+    enable = () => {
+        this.setState({
+            disabled: false,
+        });
+    };
+    disable = () => {
+        this.setState({
+            disabled: true,
+        });
+    };
     render() {
         const { text } = this.props;
-
         return (
             <View style={styles.container}>
-                <TouchableOpacity onPress={this.onPress} style={styles.button}>
+                <TouchableOpacity
+                    disabled={this.state.disabled}
+                    onPress={this.onPress}
+                    style={[styles.button, this.state.disabled && styles.disabled]}>
                     <Text style={styles.buttonText}>{this.props.text}</Text>
                 </TouchableOpacity>
             </View>
@@ -53,5 +65,8 @@ const styles = StyleSheet.create({
     buttonText: {
         textAlign: 'center',
         color: 'white',
+    },
+    disabled: {
+        backgroundColor: 'gray',
     },
 });
