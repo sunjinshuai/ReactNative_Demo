@@ -15,7 +15,9 @@ import {
     TextInput,
     NavigatorIOS,
     TouchableOpacity,
-    ScrollView
+    ScrollView,
+    TouchableHighlight,
+    Animated
 } from 'react-native';
 
 import FirstPageComponent from './View/Day1/FirstPageComponent';
@@ -197,6 +199,7 @@ class ReactNative_Button extends React.Component {
         // 如果你使用多个timer，那么用多个变量，或者用个数组来保存引用，然后逐个clear
         this.timer && clearTimeout(this.timer);
     }
+
     render() {
         return (
             <View style={styles.container}>
@@ -217,6 +220,7 @@ class ReactNative_Fetch extends React.Component {
             text: ''
         };
     }
+
     customPressHandle = () => {
         fetch('http://bbs.reactnative.cn/api/category/3')
             .then((response) => response.json())
@@ -244,7 +248,7 @@ class ReactNative_Fetch extends React.Component {
 class List extends Component {
     render() {
         return (
-            <ScrollView style={[styles.flex,styles.scrollViewTop]}>
+            <ScrollView style={[styles.flex, styles.scrollViewTop]}>
                 <Text style={styles.list_item}>✨ 还有几天就放假了</Text>
                 <Text style={styles.list_item}>✨ 回家去干啥呢</Text>
                 <Text style={styles.list_item}>✨ 还是去撸代码去吧！</Text>
@@ -253,16 +257,52 @@ class List extends Component {
     };
 }
 
-export default class ReactNative_Demo extends React.Component {
+class ReactNative_NavigatorIOS extends React.Component {
 
     render() {
         return (
             <NavigatorIOS style={styles.flex} initialRoute={{
                 component: List,
                 title: '回家过年',
-                passProps:{},
+                passProps: {},
             }}/>
         );
+    }
+}
+
+// 动画
+export default class ReactNative_Demo extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            bounceValue: new Animated.Value(0),
+        };
+    }
+
+    render() {
+        return (
+            <Animated.Image                         // 可选的基本组件类型: Image, Text, View
+                source={{uri: 'http://i.imgur.com/XMKOH81.jpg'}}
+                style={{
+                    flex: 1,
+                    transform: [                        // `transform`是一个有序数组（动画按顺序执行）
+                        {scale: this.state.bounceValue},  // 将`bounceValue`赋值给 `scale`
+                    ]
+                }}
+            />
+        );
+    }
+
+    componentDidMount() {
+        this.state.bounceValue.setValue(1.5);     // 设置一个较大的初始值
+        Animated.spring(                          // 可选的基本动画类型: spring, decay, timing
+            this.state.bounceValue,                 // 将`bounceValue`值动画化
+            {
+                toValue: 0.8,                         // 将其值以动画的形式改到一个较小值
+                friction: 1,                          // Bouncier spring
+            }
+        ).start();                                // 开始执行动画
     }
 }
 
