@@ -302,7 +302,7 @@ class ReactNative_Animation1 extends React.Component {
     }
 }
 
-export default class ReactNative_Demo extends React.Component {
+class ReactNative_Animation2 extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -331,6 +331,49 @@ export default class ReactNative_Demo extends React.Component {
                 friction: 1,                          // Bouncier spring
             }
         ).start();                                // 开始执行动画
+    }
+}
+
+class MyScene extends Component {
+    static propTypes = {
+        title: PropTypes.string.isRequired,
+        navigator: PropTypes.object.isRequired,
+    }
+
+    constructor(props, context) {
+        super(props, context);
+        this._onForward = this._onForward.bind(this);
+    }
+
+    _onForward() {
+        this.props.navigator.push({
+            title: 'Scene ' + nextIndex,
+        });
+    }
+
+    render() {
+        return (
+            <View>
+                <Text>Current Scene: { this.props.title }</Text>
+                <TouchableHighlight onPress={this._onForward}>
+                    <Text>Tap me to load the next scene</Text>
+                </TouchableHighlight>
+            </View>
+        )
+    }
+}
+
+export default class ReactNative_Demo extends React.Component {
+    render() {
+        return (
+            <NavigatorIOS
+                initialRoute={{
+                    component: MyScene,
+                    title: 'My Initial Scene',
+                }}
+                style={{flex: 1}}
+            />
+        )
     }
 }
 
