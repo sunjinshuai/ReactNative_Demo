@@ -17,7 +17,8 @@ import {
     TouchableOpacity,
     ScrollView,
     TouchableHighlight,
-    Animated
+    Animated,
+    PropTypes
 } from 'react-native';
 
 import FirstPageComponent from './View/Day1/FirstPageComponent';
@@ -335,13 +336,8 @@ class ReactNative_Animation2 extends React.Component {
 }
 
 class MyScene extends Component {
-    static propTypes = {
-        title: PropTypes.string.isRequired,
-        navigator: PropTypes.object.isRequired,
-    }
-
-    constructor(props, context) {
-        super(props, context);
+    constructor(props) {
+        super(props);
         this._onForward = this._onForward.bind(this);
     }
 
@@ -353,7 +349,7 @@ class MyScene extends Component {
 
     render() {
         return (
-            <View>
+            <View style={{marginTop: 64}}>
                 <Text>Current Scene: { this.props.title }</Text>
                 <TouchableHighlight onPress={this._onForward}>
                     <Text>Tap me to load the next scene</Text>
