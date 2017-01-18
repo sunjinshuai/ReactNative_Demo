@@ -24,7 +24,8 @@ import {
     KeyboardAvoidingView,
     Modal,
     SegmentedControlIOS,
-    Dimensions
+    Dimensions,
+    ActivityIndicatorIOS
 } from 'react-native';
 
 import FirstPageComponent from './View/Day1/FirstPageComponent';
@@ -426,7 +427,7 @@ class ReactNative_ScrollView extends Component {
     }
 }
 
-export default class ReactNative_Demo extends React.Component {
+class ReactNative_KeyboardAvoidingView extends React.Component {
 
     constructor(props) {
         super(props);
@@ -449,6 +450,32 @@ export default class ReactNative_Demo extends React.Component {
                     </View>
                 </ScrollView>
             </KeyboardAvoidingView>
+        );
+    }
+}
+
+export default class ReactNative_Demo extends React.Component {
+
+    render() {
+        return (
+            <View >
+                <Text style={styles.welcome}>
+                    SegmentedControlIOS使用实例
+                </Text>
+                <View >
+                    <SegmentedControlIOS
+                        values={['全国', '南通']}
+                        tintColor='red'
+                        style={{margin:10,height:30,width:200,alignSelf:'center'}}/>
+
+                    <SegmentedControlIOS
+                        values={['Android', 'iOS','Java','React']}
+                        tintColor='green'
+                        selectedIndex={1}
+                        onValueChange={(value)=> console.log('选中了'+value)}
+                        style={{marginTop:20,margin:10,height:30,width:300,alignSelf:'center'}}/>
+                </View>
+            </View>
         );
     }
 }
@@ -541,19 +568,25 @@ const styles = StyleSheet.create({
     //     margin:10,
     //     backgroundColor:"#ff0000",
     // },
-    outerContainer: {
-        height:height,
-        paddingTop: 20,
-    },
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-    },
-    textInput: {
-        borderRadius: 5,
-        borderWidth: 1,
-        height: 44,
-        paddingHorizontal: 10,
+    // ### KeyboardAvoidingView
+    // outerContainer: {
+    //     height:height,
+    //     paddingTop: 20,
+    // },
+    // container: {
+    //     flex: 1,
+    //     justifyContent: 'center',
+    // },
+    // textInput: {
+    //     borderRadius: 5,
+    //     borderWidth: 1,
+    //     height: 44,
+    //     paddingHorizontal: 10,
+    // },
+    welcome: {
+        fontSize: 20,
+        textAlign: 'center',
+        marginTop: 20,
     },
 });
 
