@@ -18,7 +18,9 @@ import {
     ScrollView,
     TouchableHighlight,
     Animated,
-    PropTypes
+    PropTypes,
+    Alert,
+    WebView,
 } from 'react-native';
 
 import FirstPageComponent from './View/Day1/FirstPageComponent';
@@ -359,7 +361,7 @@ class MyScene extends Component {
     }
 }
 
-export default class ReactNative_Demo extends React.Component {
+class ReactNative_NavigatorIOS1 extends React.Component {
     render() {
         return (
             <NavigatorIOS
@@ -373,84 +375,139 @@ export default class ReactNative_Demo extends React.Component {
     }
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#DEB887',
-    },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-        color: 'red',
-    },
-    style_image: {
-        borderRadius: 35,
-        height: 70,
-        width: 70,
-        marginTop: 40,
-        alignSelf: 'center',
-    },
-    style_user_input: {
-        backgroundColor: '#fff',
-        marginTop: 10,
-        height: 35,
-    },
-    style_pwd_input: {
-        backgroundColor: '#fff',
-        height: 35,
-    },
-    style_view_commit: {
-        marginTop: 15,
-        marginLeft: 10,
-        marginRight: 10,
-        backgroundColor: '#63B8FF',
-        height: 35,
-        borderRadius: 5,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    style_view_unlogin: {
-        fontSize: 12,
-        color: '#63B8FF',
-        marginLeft: 10,
-    },
-    style_view_register: {
-        fontSize: 12,
-        color: '#63B8FF',
-        marginRight: 10,
-        alignItems: 'flex-end',
-        flex: 1,
-        flexDirection: 'row',
-        textAlign: 'right',
-    },
-    bigblue: {
-        color: 'blue',
-        fontWeight: 'bold',
-        fontSize: 30,
-    },
-    red: {
-        color: 'red',
-    },
-    flex: {
-        flex: 1,
-    },
-    scrollViewTop: {
-        marginTop: 20,
-    },
-    list_item: {
-        color: '#333',
-        fontSize: 16,
-        fontWeight: 'bold',
-        marginLeft: 15,
-        borderBottomWidth: 1,
-        borderBottomColor: '#ddd',
-    },
-    detail_text: {
-        textAlign: 'center',
+export default class ReactNative_Demo extends Component {
+    render() {
+        return (
+            <View style={styles.container}>
+                <Text style={{marginTop:50}}>
+                    进行测试ScrollView控件
+                </Text>
+                <ScrollView showsVerticalScrollIndicator={true}
+                            contentContainerStyle={styles.contentContainer}>
+                    <Text
+                        style={{color:'#FFF',margin:5,fontSize:16,backgroundColor:"blue"}}>
+                        Shake or press menu button for dev menuShake or press menu button for dev menu
+                        Shake or press menu button for dev menuShake or press menu button for dev menu
+                        Shake or press menu button for dev menuShake or press menu button for dev menu
+                        Shake or press menu button for dev menuShake or press menu button for dev menu
+                        Shake or press menu button for dev menuShake or press menu button for dev menu
+                        Shake or press menu button for dev menuShake or press menu button for dev menu
+                        Shake or press menu button for dev menuShake or press menu button for dev menu
+                        Shake or press menu button for dev menuShake or press menu button for dev menu
+                        Shake or press menu button for dev menuShake or press menu button for dev menu
+                        Shake or press menu button for dev menuShake or press menu button for dev menu
+                        Shake or press menu button for dev menuShake or press menu button for dev menu
+                        Shake or press menu button for dev menuShake or press menu button for dev menu
+                        Shake or press menu button for dev menuShake or press menu button for dev menu
+                        Shake or press menu button for dev menuShake or press menu button for dev menu
+                        Shake or press menu button for dev menuShake or press menu button for dev menu
+                        Shake or press menu button for dev menuShake or press menu button for dev menu
+                        Shake or press menu button for dev menuShake or press menu button for dev menu
+                        Shake or press menu button for dev menuShake or press menu button for dev menu
+                        Shake or press menu button for dev menuShake or press menu button for dev menu
+                        Shake or press menu button for dev menuShake or press menu button for dev menu
+                        Shake or press menu button for dev menuShake or press menu button for dev menu
+                        Shake or press menu button for dev menuShake or press menu button for dev menu
+                        Shake or press menu button for dev menuShake or press menu button for dev menu
+                        Shake or press menu button for dev menuShake or press menu button for dev menu
+                        Shake or press menu button for dev menuShake or press menu button for dev menu
+                        Shake or press menu button for dev menuShake or press menu button for dev menu
+                        Shake or press menu button for dev menuShake or press menu button for dev menu
+                    </Text>
+                </ScrollView>
+            </View>
+        );
     }
+}
+
+const styles = StyleSheet.create({
+    // container: {
+    //     flex: 1,
+    //     justifyContent: 'center',
+    //     alignItems: 'center',
+    //     backgroundColor: '#DEB887',
+    // },
+    // welcome: {
+    //     fontSize: 20,
+    //     textAlign: 'center',
+    //     margin: 10,
+    //     color: 'red',
+    // },
+    // style_image: {
+    //     borderRadius: 35,
+    //     height: 70,
+    //     width: 70,
+    //     marginTop: 40,
+    //     alignSelf: 'center',
+    // },
+    // style_user_input: {
+    //     backgroundColor: '#fff',
+    //     marginTop: 10,
+    //     height: 35,
+    // },
+    // style_pwd_input: {
+    //     backgroundColor: '#fff',
+    //     height: 35,
+    // },
+    // style_view_commit: {
+    //     marginTop: 15,
+    //     marginLeft: 10,
+    //     marginRight: 10,
+    //     backgroundColor: '#63B8FF',
+    //     height: 35,
+    //     borderRadius: 5,
+    //     justifyContent: 'center',
+    //     alignItems: 'center',
+    // },
+    // style_view_unlogin: {
+    //     fontSize: 12,
+    //     color: '#63B8FF',
+    //     marginLeft: 10,
+    // },
+    // style_view_register: {
+    //     fontSize: 12,
+    //     color: '#63B8FF',
+    //     marginRight: 10,
+    //     alignItems: 'flex-end',
+    //     flex: 1,
+    //     flexDirection: 'row',
+    //     textAlign: 'right',
+    // },
+    // bigblue: {
+    //     color: 'blue',
+    //     fontWeight: 'bold',
+    //     fontSize: 30,
+    // },
+    // red: {
+    //     color: 'red',
+    // },
+    // flex: {
+    //     flex: 1,
+    // },
+    // scrollViewTop: {
+    //     marginTop: 20,
+    // },
+    // list_item: {
+    //     color: '#333',
+    //     fontSize: 16,
+    //     fontWeight: 'bold',
+    //     marginLeft: 15,
+    //     borderBottomWidth: 1,
+    //     borderBottomColor: '#ddd',
+    // },
+    // detail_text: {
+    //     textAlign: 'center',
+    // }
+    container: {
+        height:400,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#F5FCFF',
+    },
+    contentContainer: {
+        margin:10,
+        backgroundColor:"#ff0000",
+    },
 });
 
 AppRegistry.registerComponent('ReactNative_Demo', () => ReactNative_Demo);
