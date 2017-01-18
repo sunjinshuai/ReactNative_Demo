@@ -464,7 +464,7 @@ export default class ReactNative_Demo extends React.Component {
                 </Text>
                 <View >
                     <SegmentedControlIOS
-                        values={['全国', '南通']}
+                        values={['全国', '北京']}
                         tintColor='red'
                         style={{margin:10,height:30,width:200,alignSelf:'center'}}/>
 
