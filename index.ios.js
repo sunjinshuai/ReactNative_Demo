@@ -21,10 +21,16 @@ import {
     PropTypes,
     Alert,
     WebView,
+    KeyboardAvoidingView,
+    Modal,
+    SegmentedControlIOS,
+    Dimensions
 } from 'react-native';
 
 import FirstPageComponent from './View/Day1/FirstPageComponent';
 import Button from './src/component/Button';
+
+const {width, height} = Dimensions.get('window');
 
 class ReactNative_HelloWorld extends React.Component {
     render() {
@@ -375,7 +381,7 @@ class ReactNative_NavigatorIOS1 extends React.Component {
     }
 }
 
-export default class ReactNative_Demo extends Component {
+class ReactNative_ScrollView extends Component {
     render() {
         return (
             <View style={styles.container}>
@@ -416,6 +422,33 @@ export default class ReactNative_Demo extends Component {
                     </Text>
                 </ScrollView>
             </View>
+        );
+    }
+}
+
+export default class ReactNative_Demo extends React.Component {
+
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
+            <KeyboardAvoidingView behavior='position' >
+                <ScrollView style={styles.outerContainer}>
+                    <View style={styles.container}>
+                        <View style={{height:400,backgroundColor:'red',justifyContent:'center',alignItems:'center',}}>
+                            <Text style={{fontSize:28,color:'#998462',textAlign:'center',}}>Top Area</Text>
+                        </View>
+                        <TextInput
+                            placeholder="<TextInput />"
+                            style={styles.textInput} />
+                        <View style={{height:200,backgroundColor:'blue',justifyContent:'center',alignItems:'center',}}>
+                            <Text style={{fontSize:28,color:'#998462',textAlign:'center',}}>Bottom Area</Text>
+                        </View>
+                    </View>
+                </ScrollView>
+            </KeyboardAvoidingView>
         );
     }
 }
@@ -498,15 +531,29 @@ const styles = StyleSheet.create({
     // detail_text: {
     //     textAlign: 'center',
     // }
-    container: {
-        height:400,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
+    // container: {
+    //     height:400,
+    //     justifyContent: 'center',
+    //     alignItems: 'center',
+    //     backgroundColor: '#F5FCFF',
+    // },
+    // contentContainer: {
+    //     margin:10,
+    //     backgroundColor:"#ff0000",
+    // },
+    outerContainer: {
+        height:height,
+        paddingTop: 20,
     },
-    contentContainer: {
-        margin:10,
-        backgroundColor:"#ff0000",
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+    },
+    textInput: {
+        borderRadius: 5,
+        borderWidth: 1,
+        height: 44,
+        paddingHorizontal: 10,
     },
 });
 
