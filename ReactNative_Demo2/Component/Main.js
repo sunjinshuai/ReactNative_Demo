@@ -16,9 +16,9 @@ import {
 } from 'react-native';
 
 var Home = require('../Component/Home');
-var Find = require('../Component/Find');
+var Find = require('Downloads');
 var Message = require('../Component/Message');
-var Mine = require('../Component/Mine');
+var Mine = require('Favorites');
 
 var Main = React.createClass({
     //初始化方法
