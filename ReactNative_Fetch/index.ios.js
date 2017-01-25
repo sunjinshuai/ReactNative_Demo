@@ -25,11 +25,13 @@ export default class ReactNative_Fetch extends Component {
     }
 
     customPressHandle = () => {
-        fetch('http://bbs.reactnative.cn/api/category/3')
+        fetch('http://bbs.reactnative.cn/api/category/3',{
+            method: 'POST',
+        })
             .then((response) => response.json())
-            .then((responseJson) => {
+            .then((responseData) => {
                 this.setState({
-                    title: responseJson.description,
+                    title: responseData.description,
                 })
             })
             .catch((error) => {
