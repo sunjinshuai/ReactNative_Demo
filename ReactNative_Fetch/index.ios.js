@@ -33,6 +33,7 @@ export default class ReactNative_Fetch extends Component {
                 this.setState({
                     title: responseData.description,
                 })
+                alert(responseData);
             })
             .catch((error) => {
                 console.error(error);
