@@ -27,9 +27,12 @@ export default class ReactNative_MeiTuan extends Component {
     }
     render() {
         return (
-            <TabBarIOS tintColor='orange'>
+            <TabBarIOS>
                 <TabBarIOS.Item
-                    systemIcon="bookmarks"
+                    title="首页"
+                    icon={require('./img/icon_tabbar_merchant_normal.png')}
+                    selectedIcon={require('./img/icon_tabbar_merchant_selected.png')}
+                    renderAsOriginal={true}
                     selected={this.state.selectedTab === '首页'}
                     onPress={() => {this.setState({selectedTab: '首页',});}}>
                     <NavigatorIOS style={styles.flex} initialRoute={{
