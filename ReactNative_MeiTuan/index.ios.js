@@ -30,8 +30,8 @@ export default class ReactNative_MeiTuan extends Component {
             <TabBarIOS>
                 <TabBarIOS.Item
                     title="首页"
-                    icon={require('./img/icon_tabbar_merchant_normal.png')}
-                    selectedIcon={require('./img/icon_tabbar_merchant_selected.png')}
+                    icon={require('./img/icon_tabbar_homepage.png')}
+                    selectedIcon={require('./img/icon_tabbar_homepage_selected.png')}
                     renderAsOriginal={true}
                     selected={this.state.selectedTab === '首页'}
                     onPress={() => {this.setState({selectedTab: '首页',});}}>
@@ -43,7 +43,10 @@ export default class ReactNative_MeiTuan extends Component {
             }}/>
                 </TabBarIOS.Item>
                 <TabBarIOS.Item
-                    systemIcon="history"
+                    title="上门"
+                    icon={require('./img/icon_tabbar_onsite.png')}
+                    selectedIcon={require('./img/icon_tabbar_onsite_selected.png')}
+                    renderAsOriginal={true}
                     selected={this.state.selectedTab === '上门'}
                     onPress={() => {this.setState({selectedTab: '上门',});}}>
                     <NavigatorIOS style={styles.flex} initialRoute={{
@@ -53,7 +56,10 @@ export default class ReactNative_MeiTuan extends Component {
             }}/>
                 </TabBarIOS.Item>
                 <TabBarIOS.Item
-                    systemIcon="downloads"
+                    title="商家"
+                    icon={require('./img/icon_tabbar_merchant_normal.png')}
+                    selectedIcon={require('./img/icon_tabbar_merchant_selected.png')}
+                    renderAsOriginal={true}
                     selected={this.state.selectedTab === '商家'}
                     onPress={() => {this.setState({selectedTab: '商家',});}}>
                     <NavigatorIOS style={styles.flex} initialRoute={{
@@ -63,7 +69,10 @@ export default class ReactNative_MeiTuan extends Component {
             }}/>
                 </TabBarIOS.Item>
                 <TabBarIOS.Item
-                    systemIcon="favorites"
+                    title="我的"
+                    icon={require('./img/icon_tabbar_mine.png')}
+                    selectedIcon={require('./img/icon_tabbar_mine_selected.png')}
+                    renderAsOriginal={true}
                     selected={this.state.selectedTab === '我的'}
                     onPress={() => {this.setState({selectedTab: '我的',});}}>
                     <NavigatorIOS style={styles.flex} initialRoute={{
