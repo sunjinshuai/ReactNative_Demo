@@ -1,0 +1,3 @@
+rootProject.name = 'ReactNative_Banner'
+
+include ':app'

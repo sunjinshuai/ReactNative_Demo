@@ -36,11 +36,11 @@ export default class ReactNative_MeiTuan extends Component {
                     selected={this.state.selectedTab === '首页'}
                     onPress={() => {this.setState({selectedTab: '首页',});}}>
                     <NavigatorIOS style={styles.flex} initialRoute={{
-                component: Home,
-                title: '首页',
-                passProps: {},
-                rightButtonTitle:'购物车',
-            }}/>
+                        component: Home,
+                        title: '首页',
+                        passProps: {},
+                        rightButtonTitle:'购物车',
+                    }}/>
                 </TabBarIOS.Item>
                 <TabBarIOS.Item
                     title="上门"
