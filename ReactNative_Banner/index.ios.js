@@ -50,11 +50,12 @@ export default class ReactNative_Banner extends Component {
         return (
             <View>
                 <ViewPager
-                    style={{height:130}}
+                    style={{height:150}}
                     dataSource={this.state.dataSource}
                     renderPage={this._renderPage}
                     isLoop={true}
-                    autoPlay={true}/>
+                    autoPlay={true}
+                />
             </View>
         )
     }
