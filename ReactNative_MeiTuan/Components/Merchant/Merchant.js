@@ -11,11 +11,11 @@ import {
     View,
 } from 'react-native';
 
-class History extends Component {
+class Merchant extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>首页</Text>
+                <Text>商家</Text>
             </View>
         );
     };
@@ -30,4 +30,4 @@ const styles = StyleSheet.create({
 });
 
 //输出类
-module.exports = History;
+module.exports = Merchant;
